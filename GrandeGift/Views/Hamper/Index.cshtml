@@ -1,0 +1,85 @@
+﻿@*@model HamperIndexViewModel
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-12 m-5">
+                <h2>List of hampers</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-3 mb-2 btn btn-dark" type="button">
+                @Html.ActionLink("Add new hamper", "Create", "Hamper")
+            </div>
+
+        </div>
+
+        <div class="row table-responsive-sm">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Hampers</th>
+                        <th scope="col">Name</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Hampers)
+                    {
+                        <tr>
+                            <td></td>
+                            <td class="mt-2"> @item.Name</td>
+                            <td class="btn btn-dark mt-2">@Html.ActionLink("Details of hamper", "Details", "Hamper", new { id = item.HamperId})</td>
+                            <td class="btn btn-dark mt-2">@Html.ActionLink("Edit hamper", "Edit", "Hamper", new { id = item.HamperId })</td>
+                            <td class="btn btn-dark mt-2 alert alert-danger" role="alert">@Html.ActionLink("Disable hamper", "Disable", "Hamper", new { id = item.CategoryId })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>*@
+
+@model HamperIndexViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md mt-3">
+            <h3>List of hampers</h3>
+        </div>
+    </div>
+    <div class="row">
+
+
+        <div class="col col-md-3 mb-2 btn btn-warning font-weight-bold text-dark">
+            @Html.ActionLink("Add new hamper", "Create", "Hamper")
+        </div>
+
+    </div>
+
+    <div class="row table-responsive-md font-weight-bold">
+        <table class="table table-borderless">
+            <thead class="thead">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Hampers)
+                {
+                <tr>
+                    <td class="mt-2"> 
+                        <img src="~/imagesApp/@item.Image" alt="Image for the hamper" width="200" />
+                    </td>
+                    
+                    <td class="mt-2"> @item.Name</td>
+                    <td class="btn btn-warning font-weight-bold text-dark mt-2 mr-2">@Html.ActionLink("Edit hamper", "Edit", "Hamper", new { id = item.HamperId })</td>
+                </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

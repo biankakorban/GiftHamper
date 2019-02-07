@@ -1,0 +1,76 @@
+﻿@model HamperProductCreateViewModel
+
+<div class="container">
+	<div class="row">
+		<div class="col col-md-12">
+			<h2>List of products</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col col-md-3 mb-2 btn btn-dark" type="button">
+			@Html.ActionLink("Add a product", "Create", "Product")
+		</div>
+		<!-- Button trigger modal -->
+		@*<div class="col col-md-3 mb-2 btn btn-dark" type="button" data-toggle="modal" data-target="#exampleModal">
+			@Html.ActionLink("Attach product to hamper", "Create", "HamperProduct")
+		</div>*@
+
+		<!-- Button trigger modal -->
+		<button id="myModalButton" type="button" class="btn btn-dark">
+			Attach product to hamper
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="myBtn close" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Hello DIPS1 students</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="myBtn btn btn-secondary">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<div class="row table-responsive-sm">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Products</th>
+					<th scope="col">Name</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.ProductList)
+				{
+					<tr>
+						<td></td>
+						<td class="mt-2"> @item.Name</td>
+						<td class="btn btn-dark mt-2">@Html.ActionLink("Edit product name", "Edit", "Product", new { id = item.ProductId })</td>
+						<td class="btn btn-dark mt-2 alert alert-danger" role="alert">@Html.ActionLink("Delete product", "Delete", "Product", new { id = item.ProductId })</td>
+					</tr>
+
+				}
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+
+

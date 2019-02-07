@@ -1,0 +1,73 @@
+﻿@model CustomerProfileDetailsViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-12">
+            <h2>Customer Page - Details</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-3 mb-2 btn btn-dark" type="button">
+            @Html.ActionLink("Update your details", "Edit", "CustomerProfile")
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="col col-md-3">
+            <p>First Name: @Model.FirstName </p>
+        </div>
+        <div class="col col-md-3">
+            <p>Last Name: @Model.LastName </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-5">
+            <p>Username: @Model.UserName </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-5">
+            <p>Email Address: @Model.Email </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-5">
+            <p>Phone Number: @Model.Phone </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-3 mb-2 btn btn-dark" type="button">
+            @Html.ActionLink("Add new delivery address", "Create", "CustomerAddress")
+        </div>
+    </div>
+    <div class="row table-responsive-sm">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Delivery Address</th>
+                    <th scope="col">Street</th>
+                    <th scope="col">Suburb</th>
+                    <th scope="col">City</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.MyAddresses)
+                {
+                <tr>
+                    <td></td>
+                    <td> @item.Line1 @item.Line2</td>
+                    <td> @item.Suburb</td>
+                    <td> @item.City</td>
+                    <td class="btn btn-dark">@Html.ActionLink("See address details", "Details", "CustomerAddress", new { id = item.AddressId })</td>
+                    <td class="btn btn-dark">@Html.ActionLink("Update address", "Edit", "CustomerAddress", new { id = item.AddressId})</td>
+                    <td class="btn btn-dark">@Html.ActionLink("Delete address", "Delete", "CustomerAddress", new { id = item.AddressId })</td>
+                </tr>
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+   
+</div>

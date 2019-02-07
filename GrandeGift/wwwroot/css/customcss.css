@@ -1,0 +1,81 @@
+﻿body {
+    background-color: #fcc9a7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+
+header {
+    /*background-image: url('../images/1.jpg');
+	/*background-image: url('../images/bg5.jpg');*/
+    height: 100%;
+    /* Center and scale the image nicely */
+    /*background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;*/
+    background-color: #fcc9a7;
+    color: black !important;
+    font-weight: bold;
+}
+
+
+
+footer {
+    /*background-image: url('../images/1.jpg');*/
+    height: 100%;
+    /* Center and scale the image nicely */
+    /*background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;*/
+    background-color: #fcc9a7;
+    color: black !important;
+    font-weight: bold;
+}
+
+canvas{
+    background-color: brown;
+}
+
+.img {
+    position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100px;
+    object-fit: cover
+}
+
+#grandeLogo{
+    width: 500px;
+    height: 200px;
+}
+
+.grande{
+    color:crimson;
+    font-size: 34px;
+}
+
+#homeIndexArticleHeader{
+    color: brown;
+    text-align: center;
+}
+
+
+#asideHomeIndex {
+    background-image: url('../imagesapp/bgimageforsub.jpg');
+ 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+nav{
+    background-color: brown;
+}
+
+#searchBar {
+    background-color: brown;
+   
+}
+

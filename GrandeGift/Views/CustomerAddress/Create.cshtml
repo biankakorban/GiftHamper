@@ -1,0 +1,88 @@
+﻿@model CustomerAddressCreateViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+            <h3>Deelivery addressess</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card mx-auto">
+            <div class="card-header bg-dark text-light">
+                Add new delivery address
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <form asp-controller="CustomerAddress" asp-action="Create" method="post">
+
+                        <span class="row mt-2" asp-validation-summary="ModelOnly"></span>
+                        <div class="row mb-2">
+                            <div class="col col-md-6">
+                                @*<label asp-for="CustomerId">CustomerId</label>*@
+                                <input asp-for="CustomerId" class="form-control" type="hidden" />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-6">
+                                <label asp-for="Line1">Line 1</label>
+                                <input asp-for="Line1" class="form-control" placeholder="Line 1" />
+                                <span asp-validation-for="Line1" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-6">
+                                <label asp-for="Line2">Line 2</label>
+                                <input asp-for="Line2" class="form-control" placeholder="Line 2" />
+                                <span asp-validation-for="Line2" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-8">
+                                <label asp-for="Suburb"></label>
+                                <input asp-for="Suburb" class="form-control" placeholder="Suburb" />
+                                <span asp-validation-for="Suburb" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-8">
+                                <label asp-for="PostalCode"></label>
+                                <input asp-for="PostalCode" class="form-control" placeholder="Postal Code" />
+                                <span asp-validation-for="PostalCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-8">
+                                <label asp-for="City"></label>
+                                <input asp-for="City" class="form-control" placeholder="City" />
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-8">
+                                <label asp-for="State"></label>
+                                <input asp-for="State" class="form-control" placeholder="State" />
+                                <span asp-validation-for="State" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col-md-8">
+                                <label asp-for="Country"></label>
+                                <input asp-for="Country" class="form-control" placeholder="Country" />
+                                <span asp-validation-for="Country" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-5">
+                                <button type="submit" class="btn btn-dark">Add new delivery address and Continue</button>
+                                @*<input class="btn btn-dark" type="submit" value="Update Details and Continue" />*@
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

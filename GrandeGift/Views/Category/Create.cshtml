@@ -1,0 +1,62 @@
+﻿@model CategoryCreateViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-3">
+            <div class="container">
+               
+                <div class="row">
+                    <div class="col col-md mt-3">
+                        <h3 class="text-center">List of categories</h3>
+                        <ul class="list-group">
+                            @foreach (var item in Model.Categories)
+                            {
+                            <li class="list-group-item"> @item.Name</li>
+                                
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-md">
+            <div class="container">
+                <div class="row m-3">
+                    <h3>Hamper's categories</h3>
+                </div>
+                <div class="row">
+                    <div class="col col-md text-center"> 
+                        <form asp-controller="Category" asp-action="Create" method="post">
+                            <span class="row mt-2" asp-validation-summary="ModelOnly"></span>
+                                <div class="row mb-2 ">
+                                        <div class="col col-md-9 mx-auto">
+                                            <label class="font-weight-bold" asp-for="Name">Name of the category</label>
+                                            <input asp-for="Name" class="form-control text-center" placeholder="Name of the category" />
+                                            <span asp-validation-for="Name" class="text-danger" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col col-md">
+                                            <button type="submit" class="btn btn-warning font-weight-bold" >Add new category and Continue</button>
+                                           
+                                        </div>
+                                    </div>
+                        </form>
+                    </div>
+
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+   
+   
+</div>
+
+
+
+

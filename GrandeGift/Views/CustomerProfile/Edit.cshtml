@@ -1,0 +1,75 @@
+﻿@model CustomerProfileEditViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+            <h3>Update Page</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card mx-auto">
+            <div class="card-header bg-dark text-light">
+                Update your details.
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <form asp-controller="CustomerProfile" asp-action="Edit" method="post">
+
+                        <span class="row mt-2" asp-validation-summary=" ModelOnly"></span>
+                        <div class="row mb-2">
+                            <div class="col col-md-6 mx-auto">
+                                @*<label asp-for="UserId">UserId</label>*@
+                                <input asp-for="UserId" class="form-control" placeholder="UserId"  type="hidden"/>
+                            </div>
+                            <div class="col col-md-6 mx-auto">
+                                @*<label asp-for="CustomerId">CustomerId</label>*@
+                                <input asp-for="CustomerId" class="form-control" placeholder="CustomerId" type="hidden"/>
+                            </div>
+                        </div>
+                            <div class="row mb-2">
+                                <div class="col col-md-6 mx-auto">
+                                    <label asp-for="FirstName">Firstname</label>
+                                    <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                                    <span asp-validation-for="FirstName" class="text-danger" />
+                                </div>
+                                <div class="col col-md-6 mx-auto">
+                                    <label asp-for="LastName"></label>
+                                    <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                                    <span asp-validation-for="LastName" class="text-danger" />
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col col-md-6">
+                                    <label asp-for="UserName"></label>
+                                    <input asp-for="UserName" class="form-control" placeholder="Username" />
+                                    <span asp-validation-for="UserName" class="text-danger" />
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col col-md-8">
+                                    <label asp-for="Email"></label>
+                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col col-md-8">
+                                    <label asp-for="Phone"></label>
+                                    <input asp-for="Phone" class="form-control" placeholder="Phone" />
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 justify-content-md-center">
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-dark">Update Details and Continue</button>
+                                    @*<input class="btn btn-dark" type="submit" value="Update Details and Continue" />*@
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

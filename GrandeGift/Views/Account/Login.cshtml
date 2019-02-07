@@ -1,0 +1,51 @@
+﻿@model AccountLoginViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-12">
+            <h3>Login Page</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card mx-auto">
+            <div class="card-header bg-dark text-light">
+                Returning Customer? Log In.
+            </div>
+            <div class="card-body ">
+                <div class="container-fluid">
+                    <form asp-controller="Account" asp-action="Login" method="post">
+
+                        <span class="row mt-2" asp-validation-summary=" ModelOnly"></span>
+                        <div class="row mb-2">
+                            <div class="col col-md-10 mx-auto">
+                                <label asp-for="UserName"></label>
+                                <input asp-for="UserName" class="form-control" placeholder="Username" />
+                                <span asp-validation-for="UserName" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col col-md-10 mx-auto ">
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" placeholder="Password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                      
+                                <label asp-for="RememberMe"  class="col col-md-7 mx-auto"></label>
+                                <input asp-for="RememberMe" type="checkbox" class=" col col-md-1 mx-auto" />
+                            
+                        </div>
+
+                        <div class="row mb-2 justify-content-center">
+                            <div class="col-md-5">
+                                <input class="btn btn-dark" type="submit" value="Login" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

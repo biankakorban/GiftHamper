@@ -1,0 +1,82 @@
+﻿@*@model HamperDetailsViewModel
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-12">
+                <h2>Hamper Page</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-3">
+                <p>Name: @Model.Name</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-5">
+                <p>Price: @Model.Price</p>
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="col col-md-5">
+                    <p>Category: @Model.CategoryId</p>
+                </div>*@
+@*<div class="col col-md-5">
+    <p>Category: @Model.CategoryName </p>
+</div>
+    </div>
+<div class="row">
+    <p>List of products:</p>
+    @foreach (var item in Model.ProductList)
+    {
+        <p> @item.ProductId</p>
+    }
+</div>
+
+<div class="row">
+    <div class="col col-md-3 mb-2 btn btn-dark" type="button">
+        @Html.ActionLink("Update hamper", "Edit", "Hamper", new { id = Model.HamperId })
+    </div>
+
+</div>
+</div>*@
+
+
+@model HamperDetailsViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md mt-3">
+            <h3>List of hampers</h3>
+        </div>
+    </div>
+    <div class="row">
+
+
+        <div class="col col-md-3 mb-2 btn btn-warning font-weight-bold text-dark">
+            @Html.ActionLink("Add new hamper", "Create", "Hamper")
+        </div>
+
+    </div>
+
+    <div class="row table-responsive-md font-weight-bold">
+        <table class="table table-borderless">
+            <thead class="thead">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Hampers)
+                {
+                    <tr>
+                        <td class="mt-2"> @item.Name</td>
+                        <td class="btn btn-warning font-weight-bold text-dark mt-2 mr-2">@Html.ActionLink("Edit hamper", "Edit", "Hamper", new { id = item.HamperId })</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
