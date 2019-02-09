@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\footer-reveal.js" />
+    <Content Remove="wwwroot\js\footer-reveal.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\node_modules\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="wwwroot\node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="wwwroot\node_modules\bootstrap\dist\css\bootstrap-reboot.css" />
