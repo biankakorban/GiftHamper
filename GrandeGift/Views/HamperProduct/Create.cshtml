@@ -1,43 +1,31 @@
 ﻿@model HamperProductCreateViewModel
 
 <div class="container">
+	<div class="row">
+		<div class="col-sm m-3 text-center">
+			<h3>Gift Hamper Details</h3>
+		</div>
+	</div>
     <div class="row">
-        <div class="col col-md-12">
-            <h2>Hamper</h2>
-        </div>
+		<div class="col-sm-6">
+			<p>Hamper Name: @Model.Name</p>
+			<p>Category Name: @Model.CategoryName</p>
+			<p>Hamper Price: @Html.DisplayFor(model => model.Price)</p>
+		</div>
+		<div class="col-sm">
+			<img src="~/imagesApp/@Model.Hamper.Image" alt="Image for the hamper" width="200" />
+		</div>
     </div>
-    <div class="row">
-        <div class="col col-md-3">
-            <p>Name: @Model.Name</p>
-        </div>
-    </div>
-    <div class="row">
-        @foreach (var item in Model.CategoryList)
-        {
-            <p>Category Name: @item.Name</p>
-        }
-    </div>
-    <div class="row">
-        <div class="col col-md-5">
-            <p>Price: @Model.Price</p>
-        </div>
-    </div>
+   
 
 
 
 
 
-
-
-
-
-
-
-
-
+	@*modal - to attach product the the hamper*@
     <div class="row">
         <!-- Button trigger modal -->
-        <button id="myModalButton" type="button" class="btn btn-dark">
+        <button id="myModalButton" type="button" class="btn btn-warning">
             Attach product to hamper
         </button>
 
@@ -51,50 +39,63 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row table-responsive-sm">
+					<div>
+						
+					</div>
 
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Products</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                    @foreach (var item in Model.ProductList)
-                                    {
-                                        <tr>
-                                            <td></td>
-                                            <td class="mt-2"> @item.Name</td>
-                                            <td class="btn btn-dark mt-2">
 
-                                                @*@Html.ActionLink("Attach to hamper", "Create", "HamperProduct", new { hamperId = Model.HamperId, productId = item.ProductId})*@
-                                                @*<a asp-controller="HamperProduct" asp-action="Attach" asp-route-id="">Add to a cart</a>*@
-                                                <a href="/HamperProduct/Attach/@Model.HamperId/@item.ProductId">Attach Product</a>
-                                            </td>
-                                        </tr>
+					<div class="modal-body">
+						<ul class="list-group">
+							@foreach (var item in Model.ProductList)
+							{
+								<li class="list-group-item">@item.Name
+									<a class="btn btn-warning float-sm-right" href="/HamperProduct/Attach/@Model.HamperId/@item.ProductId">Attach Product</a>
+								</li>
+							}
 
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+						</ul>
+						
+						@*<div class="row table-responsive-sm">
+
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">Products</th>
+										<th scope="col">Name</th>
+										<th scope="col"></th>
+										<th scope="col"></th>
+									</tr>
+								</thead>
+								<tbody>
+
+									@foreach (var item in Model.ProductList)
+									{
+										<tr>
+											<td></td>
+											<td class="mt-2"> @item.Name</td>
+											<td class="btn btn-dark mt-2">
+
+												Html.ActionLink("Attach to hamper", "Create", "HamperProduct", new { hamperId = Model.HamperId, productId = item.ProductId})
+												@*<a asp-controller="HamperProduct" asp-action="Attach" asp-route-id="">Add to a cart</a>
+												<a href="/HamperProduct/Attach/@Model.HamperId/@item.ProductId">Attach Product</a>
+											</td>
+										</tr>
+
+									}
+								</tbody>
+							</table>
+						</div>*@
+					</div>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
 
 
-
-
+@*script for modal button*@
 
 @section customscript{
 	<script>

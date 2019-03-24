@@ -13,6 +13,8 @@ namespace BiankaKorban_DiplomaProject.ViewModels
         [Display(Name = "Name of the category")]
         [Required (ErrorMessage = "Field cannot be empty")]
 		public string Name { get; set; }
+
+
         public int Total { get; set; }
         public IEnumerable<Category> Categories { get; set; }
     }

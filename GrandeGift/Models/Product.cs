@@ -14,6 +14,8 @@ namespace BiankaKorban_DiplomaProject.Models
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ProductId { get; set; } //PK
+
+		[Required]
 		public string Name { get; set; }
 		//
 		public ICollection<HamperProduct> Hampers { get; set; }

@@ -244,7 +244,7 @@ namespace GrandeGift.Migrations
                     AddressId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Line1 = table.Column<string>(nullable: false),
-                    Line2 = table.Column<string>(nullable: false),
+                    Line2 = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: false),
                     State = table.Column<string>(nullable: false),
                     Country = table.Column<string>(nullable: false),

@@ -10,27 +10,28 @@ namespace BiankaKorban_DiplomaProject.ViewModels
 {
     public class AccountRegisterViewModel
     {
-        [StringLength(50, ErrorMessage = "Name cannot be longer than 50 characters")]
-        [Required (ErrorMessage = "Username field is required"), MaxLength(300, ErrorMessage = "Username cannot be longer than 300 characters and shorter than 3 charasters"), 
-        MinLength(3),]
-        public string UserName { get; set; }
+		[StringLength(50, ErrorMessage = "Name cannot be longer than 50 characters")]
+		[Required(ErrorMessage = "Username field is required"), MaxLength(300, ErrorMessage = "Username cannot be longer than 300 characters and shorter than 3 charasters"),
+		MinLength(3), Display(Name = "Username")]
+		public string UserName { get; set; }
 
         [Required, DataType(DataType.Password, ErrorMessage = "Wrong Password")]
         public string Password { get; set; }
 
-        [Required, DataType(DataType.Password, ErrorMessage = "Wrong password"), Compare(nameof(Password))]
+        [Required, DataType(DataType.Password, ErrorMessage = "Wrong password"), Compare(nameof(Password)), 
+			Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
 
         [Required, DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Firstname field is required"), MaxLength(256)]
+        [Required(ErrorMessage = "Firstname field is required"), MaxLength(256), Display(Name = "First name")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Lastname field is required"), MaxLength(256)]
+        [Required(ErrorMessage = "Lastname field is required"), MaxLength(256), Display(Name = "Last name")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Phone number field is required"), ]
+        [Required(ErrorMessage = "The Phone number field is required")]
         public string Phone { get; set; }
     }
 }

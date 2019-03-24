@@ -13,12 +13,13 @@ namespace BiankaKorban_DiplomaProject.ViewModels
 
         [StringLength(50, ErrorMessage = "Name cannot be longer than 50 characters.")]
         [Required(ErrorMessage = "Username field is required"), MaxLength(300, ErrorMessage = "Username cannot be longer than 300 characters and shorter than 3 charasters"),
-        MinLength(3),]
+        MinLength(3), Display(Name = "Username")]
         public string UserName { get; set; }
 
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
 
+		[Display(Name = "Remember Me")]
         public bool RememberMe{ get; set; }
 
         public string ReturnUrl { get; set; }

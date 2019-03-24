@@ -2,27 +2,34 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" 
-          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" 
-          crossorigin="anonymous">
-    <link href="~/css/customcss.css" rel="stylesheet" />
-    <title>@ViewBag.Title</title>
+	<meta name="viewport" content="width=device-width" />
+	<link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		  integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+		  crossorigin="anonymous">
+	<link href="~/css/customcss.css" rel="stylesheet" />
+	<title>@ViewBag.Title</title>
 
 
 </head>
+
 <body class="container-fluid">
 
-	<div class="row">
-		<div class="col col-md align-self-md-center d-inline-block" id="loginLogoutSection ">
+	<!--to wrap contect for creating sticky footer-->
+	<div class="wrapper">
 
-			
+		<!-- Back to top button -->
+
+
+		<div class="row">
+			<div class="col-sm align-self-sm-center d-inline-block bg-light" id="loginLogoutSection ">
+
+
 
 				@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 				{
 					<div class="row">
-						<div class="col col-md text-md-right">
+						<div class="col-sm text-sm-right">
 							<p>
 								<div class="d-inline-block">
 									<span><i class="fas fa-user"></i></span>
@@ -33,13 +40,13 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col col-md text-md-right">
-							<p>@Html.ActionLink("Logout", "Logout", "Account")</p>
-
+						<div class="col-sm text-sm-right">
+							<p class="text-dark">@Html.ActionLink("Logout", "Logout", "Account")</p>
+							
 						</div>
 					</div>
 					<div class="row">
-						<div class="col col-md text-md-right">
+						<div class="col-sm text-sm-right">
 							<p>@Html.ActionLink("Go to Admin page", "AdminPage", "Admin")</p>
 
 						</div>
@@ -49,7 +56,7 @@
 				@if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
 				{
 					<div class="row">
-						<div class="col col-md text-md-right">
+						<div class="text-decoration-none col-sm text-sm-right">
 							<p>
 								<div class="d-inline-block"><span><i class="fas fa-user"></i></span></div>
 								Hi @User.Identity.Name.
@@ -58,13 +65,13 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col col-md text-md-right">
+						<div class="text-decoration-none col-sm text-sm-right">
 							<p>@Html.ActionLink("Logout", "Logout", "Account")</p>
 
 						</div>
 					</div>
 					<div class="row">
-						<div class="col col-md text-md-right">
+						<div class="text-decoration-none col-sm text-sm-right">
 							@Html.ActionLink("Customer page", "Details", "CustomerProfile")
 						</div>
 					</div>
@@ -74,9 +81,9 @@
 				{
 				}
 				@*<span>|</span>*@
-				<div class="row">
-					<div class="col col-md text-md-right">
-						<div class=" d-inline-block">
+				<div class="row text-dark">
+					<div class=" text-decoration-none  text-reset col-sm text-sm-right ">
+						<div class=" d-inline-block ">
 
 							@if (User.Identity.IsAuthenticated)
 							{
@@ -98,178 +105,189 @@
 				</div>
 			</div>
 		</div>
-	@*</div>*@
-	<header class="row ">
-		<div class="col col-md-3 ">
-			<!-- Company logo -->
-			<a class="navbar-brand" href="~/Home/Index">
-				<img id="grandeLogo" class=" w-100 mx-auto img-fluid"
-
-				src="~/imagesApp/27c8745f-4aa3-4361-b077-c1a9db98fdd6.png" />
-			</a>
-
-		</div>
-		<!--contact-->
-		<div class="col col-xs-3 align-self-center  text-md-right">
-			<div class="d-inline-block "><span><i class="fas fa-phone"></i></span></div>
-			<div class=" d-inline-block"><p>0444 444 444</p></div>
-		</div>
-		<!--delivery option-->
-		<div class="col col-md-3 align-self-center d-none d-sm-none d-md-block  text-md-right">
-			<div class="d-inline-block"><span><i class="fas fa-truck"></i></span></div>
-			<div class=" d-inline-block"><p>Delivery options</p></div>
-		</div>
-
-		<div class="col col-md align-self-center d-none d-sm-none d-md-block  text-md-right">
-			<div class="d-inline-block"><span><i class="fas fa-shopping-cart"></i></span></div>
-			<div class=" d-inline-block"><p>$0.00</p></div>
-		</div>
-	</header>
-	<div class="row">
-		<nav class="navbar navbar-expand-lg  col-md-12">
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="~/Home/Index">
-							Home
-							<span class="sr-only">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="~/Home/Index">
-							List of hampers
-						</a>
-					</li>
-
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Shop by category
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Search hampers by category</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown link
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-					@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-					{
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Admin Tasks
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="~/Category/Create">Add Category</a>
-								<a class="dropdown-item" href="~/Category/Details">List of Categories</a>
-								<a class="dropdown-item" href="~/Product/Create">Add New Product</a>
-								<a class="dropdown-item" href="~/Product/Details">List of Products</a>
-								<a class="dropdown-item" href="~/Hamper/Create">Add New Gift Hampers</a>
-								<a class="dropdown-item" href="~/Hamper/Index">List of Hampers</a>
-
-
-
-							</div>
-						</li>
-					}
-
-
-					<li class="nav-item">
-						<a class="nav-link" href="#">About Us</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact Us</a>
-					</li>
-				</ul>
+		@*</div>*@
+		<header class="row ">
+			<div class="col-sm-4 d-flex justify-content-center">
+				<!-- Company logo -->
+				<a class="navbar-brand" href="~/Home/Index">
+					<img id="grandeLogo"
+						 src="~/imagesApp/LogoNEw.png" />
+				</a>
 
 			</div>
-			<div class=" mt-md-2 my-md-2 float-md-right">
-				<form class="form-inline float-right">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+			<div class="col-sm-3 d-none d-none d-sm-none d-md-block align-self-center ">
+				<div class="text-center ">
+
+					<p>Question about delivery ?</p>
+					<p><a class="text-decoration-none text-danger font-weight-bolder" href="">Click here </a> and find answers</p>
+
+
+				</div>
+			</div>
+
+
+			<div class="col-sm-1  d-none d-sm-none d-md-block  text-sm-right align-self-center">
+				<div class="d-flex justify-content-center">
+					<div class="d-inline-block"><span><i class="fas fa-shopping-cart"></i></span></div>
+					<div class=" d-inline-block"><p>$0.00</p></div>
+				</div>
+
+			</div>
+			<div class="col-sm d-flex justify-content-center ">
+				<form class="form-inline ">
+					<input class="form-control mr-sm-2 border-dark" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 				</form>
 			</div>
-		</nav>
+		</header>
+		<div class="row">
+			<nav class="navbar navbar-expand-lg navbar-light col-sm-12 ">
+
+				<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon "></span>
+				</button>
+				<div class="collapse navbar-collapse  justify-content-center" id="navbarNavDropdown">
+					<ul class="navbar-nav ">
+						<li class="nav-item active">
+							<a class="nav-link  text-white" href="~/Home/Index">
+								HOME
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white" href="~/Home/Index">
+								GIFT HAMPERS
+							</a>
+						</li>
+
+						<li class="nav-item dropdown ">
+							<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								SHOP BY CATEGORY
+							</a>
+							<div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Search hampers by category</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Dropdown link
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</li>
+						@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+						{
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									ADMIN TASKS
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="~/Category/Create">Add New Category</a>
+									<a class="dropdown-item" href="~/Category/Details">List of Categories</a>
+									<a class="dropdown-item" href="~/Product/Create">Add New Product</a>
+									<a class="dropdown-item" href="~/Product/Details">List of Products</a>
+									<a class="dropdown-item" href="~/Hamper/Create">Add New Gift Hampers</a>
+									<a class="dropdown-item" href="~/Hamper/Index">List of Hampers</a>
+
+
+
+								</div>
+							</li>
+						}
+
+
+						<li class="nav-item">
+							<a class="nav-link text-white" href="#">ABOUT US</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white" href="#">CONTACT US</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</nav>
+
+		</div>
+
 
 
 		@*<div class=" id="searchBar">
-				<div class="input-group-prepend">
-					<span class="input-group-text"><i class="fas fa-search"></i></span>
-				</div>
-				<input type="text" class="form-control" placeholder="Search">
-			</div>*@
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fas fa-search"></i></span>
+			</div>
+			<input type="text" class="form-control" placeholder="Search">
+		</div>*@
 
 
 
 
+
+
+
+
+
+		<!-- Content for every page -->
+
+		<main class="row">
+			@RenderBody()
+
+
+		</main>
+		<div class="row">
+			<div class="col-md-1 align-self-end">
+				<a  href="#" id="back-to-top" title="Back to top">&uarr;</a>
+			</div>
+		</div>
+		<div class="push"></div>
 	</div>
-
-
-
-
-
-
-
-	<!-- Content for every page -->
-
-	<main class="row">
-		@RenderBody()
-	</main>
-
-
-
 	<!-- Footer -->
-		<footer class="row mt-2 pt-2">
-			<div class="col-md-5 text-md-left ml-2">
-				<p>27 Crystal St</p>
-				<p>Petersham NSW 2049</p>
-				<p>Phone: 0478 888 777</p>
-			</div>
-			<div class="col-md-4 text-md-left">
-				<p>&copy Grande Gift 2018</p>
-			</div>
-			<div class="col-md text-md-left">
-				<ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link" href="/Home/TermsOfUse">Terms of use</a>
-					</li>
-				</ul>
-				<ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link" href="/Home/PrivacyPolicy">Privacy Policy</a>
-					</li>
-				</ul>
-			</div>
-		</footer>
+	<footer class="footer row mt-2 pt-2 fixed-bottom">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 text-center ml-2">
+					<p>27 Crystal St</p>
+					<p>Petersham NSW 2049</p>
+					<p>Phone: 0478 888 777</p>
+				</div>
 
-	
+				<div class="col-md text-center">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link text-dark" href="/Home/TermsOfUse">Terms of use</a>
+						</li>
+					</ul>
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link text-dark" href="/Home/PrivacyPolicy">Privacy Policy</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center bg-light">
+					<p>&copy Grande Gift 2018</p>
+				</div>
+			</div>
 
-
+		</div>
+	</footer>
 
 
 
 	<script src="~/node_modules/jquery/dist/jquery.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
 	<script src="~/node_modules/popper.js/dist/umd/popper.js"></script>
 	<script src="~/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-	<script src="~/js/footer-reveal.js"></script>
-	<script src="~/js/customjs.js"></script>
+	<script src="~/js/custom.js"></script>
 
 	<!-- Fontawesome-->
 	<script src="https://use.fontawesome.com/4b4d9d89db.js"></script>
+
 
 	<!-- Footer -->
 	@RenderSection("customscript", required: false)

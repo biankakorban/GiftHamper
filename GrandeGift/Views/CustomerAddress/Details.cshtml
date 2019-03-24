@@ -1,40 +1,63 @@
 ﻿@model CustomerAddressDetailsViewModel
 
 <div class="container">
-    <div class="row">
-        <div class="col col-md-12">
-            <h2>Customer Page - Address Details</h2>
-        </div>
-    </div>
-    @*<div class="row">
-        <div class="col col-md-3">
-            <p>Id: @Model.AddressId</p>
-        </div>
-    </div>*@
-    <div class="row">
-        <div class="col col-md-3">
-            <p>Street: @Model.Line1  @Model.Line2</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-md-3">
-            <p>Suburb: @Model.Suburb @Model.PostalCode</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-md-5">
-            <p>City and State: @Model.City @Model.State</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-md-5">
-            <p>Country: @Model.Country</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-md-3 mb-2 btn btn-dark" type="button">
-            @Html.ActionLink("Update your address", "Edit", "CustomerAddress", new { id = Model.AddressId })
-        </div>
-
-    </div>
+	<div class="row mt-4 mb-4">
+		<div class="col col-md-12 text-center ">
+			<h4>MY ACCOUNT INFORMATION</h4>
+			<p>Details of an address</p>
+		</div>
+	</div>
+	<div class="row m-4 bg-light">
+		<div class="col-sm-8">
+			<p class="text-hide">@Model.AddressId</p>
+			<p>@Model.Line1 @Model.Line2</p>
+			<p>@Model.Suburb @Model.PostalCode</p>
+			<p>@Model.State @Model.City @Model.Country</p>
+			<a asp-controller="CustomerAddress" asp-action="Edit" asp-route-id="@Model.AddressId" class="btn btn-warning m-2">Edit</a>
+		</div>
+		<div class="col-sm">
+			<p>Maybe google map</p>
+		</div>
+	</div>
+	
 </div>
+	
+
+@*<div class="container">
+	<div class="row">
+		<div class="col col-md-12">
+			<h2>Customer Page - Address Details</h2>
+		</div>
+	</div>
+	@*<div class="row">
+			<div class="col col-md-3">
+				<p>Id: @Model.AddressId</p>
+			</div>
+		</div>
+<div class="row">
+	<div class="col col-md-3">
+		<p>Street: @Model.Line1  @Model.Line2</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-3">
+		<p>Suburb: @Model.Suburb @Model.PostalCode</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-5">
+		<p>City and State: @Model.City @Model.State</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-5">
+		<p>Country: @Model.Country</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-3 mb-2 btn btn-dark" type="button">
+		@Html.ActionLink("Update your address", "Edit", "CustomerAddress", new { id = Model.AddressId })
+	</div>
+
+</div>
+</div>*@

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GrandeGift.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20190207051403_initMigration")]
+    [Migration("20190321045153_initMigration")]
     partial class initMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,8 +38,7 @@ namespace GrandeGift.Migrations
                     b.Property<string>("Line1")
                         .IsRequired();
 
-                    b.Property<string>("Line2")
-                        .IsRequired();
+                    b.Property<string>("Line2");
 
                     b.Property<string>("PostalCode")
                         .IsRequired();

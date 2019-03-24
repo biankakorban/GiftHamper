@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 //
@@ -11,8 +12,11 @@ namespace BiankaKorban_DiplomaProject.ViewModels
     {
         public int HamperId { get; set; }
         public Hamper Hamper { get; set; }
+		public string CategoryName { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+
+		[DisplayFormat(DataFormatString = "{0:C}")]
+		public double Price { get; set; }
         public IEnumerable<Category> CategoryList { get; set; }
         public IEnumerable<Hamper> HamperList { get; set; }
 		public int ProductId { get; set; }

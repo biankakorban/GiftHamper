@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GrandeGift.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20190207051604_update")]
-    partial class update
+    [Migration("20190322062611_updateModels")]
+    partial class updateModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,7 @@ namespace GrandeGift.Migrations
                     b.Property<string>("Line1")
                         .IsRequired();
 
-                    b.Property<string>("Line2")
-                        .IsRequired();
+                    b.Property<string>("Line2");
 
                     b.Property<string>("PostalCode")
                         .IsRequired();
@@ -92,7 +91,8 @@ namespace GrandeGift.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("CategoryId");
 
@@ -206,7 +206,8 @@ namespace GrandeGift.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("ProductId");
 

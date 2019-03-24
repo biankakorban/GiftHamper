@@ -43,8 +43,10 @@ namespace BiankaKorban_DiplomaProject.Controllers
 
 			//call service
 			IEnumerable<Product> listOfProducts = _productDataService.GetAll();
-            IEnumerable<Category> listOfCategories = _categoryDataService.GetAll();
+			
+			IEnumerable<Category> listOfCategories = _categoryDataService.GetAll();
 			Hamper hamper = _hamperDataService.GetSingle(h => h.HamperId == id);
+			Category category = _categoryDataService.GetSingle(c => c.CategoryId == hamper.CategoryId);
 			//vm
 			HamperProductCreateViewModel vm = new HamperProductCreateViewModel
 			{
@@ -54,6 +56,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
                 Name = hamper.Name,
                 
                 CategoryList = listOfCategories,
+				CategoryName = category.Name,
 				ProductList = listOfProducts
 			};
 

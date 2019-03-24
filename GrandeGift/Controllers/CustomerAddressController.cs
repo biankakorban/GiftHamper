@@ -87,8 +87,6 @@ namespace BiankaKorban_DiplomaProject.Controllers
 				PostalCode = address.PostalCode,
 				Country = address.Country
 			};
-
-
 			return View(vm);
 
 		}
@@ -97,12 +95,12 @@ namespace BiankaKorban_DiplomaProject.Controllers
 		[HttpGet]
 		public IActionResult Edit(int id)
 		{
-
 			Address address = _addressDataService.GetSingle(a => a.AddressId == id);
 
 			CustomerAddressEditViewModel vm = new CustomerAddressEditViewModel
 			{
 				AddressId = address.AddressId,
+			    
 				Line1 = address.Line1,
 				Line2 = address.Line2,
 				City = address.City,

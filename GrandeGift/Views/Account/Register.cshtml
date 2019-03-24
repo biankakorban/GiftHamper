@@ -1,74 +1,68 @@
 ﻿@model AccountRegisterViewModel
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col col-md-12">
-            <h3>Register Page</h3>
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col col-md-12 text-center ">
+			<h4>CREATE NEW CUSTOMER ACCOUNT</h4>
+			<p>Creating an account is easy. Just fill in the form below.</p>
         </div>
     </div>
-    <div class="row">
-        <div class="card mx-auto">
-            <div class="card-header bg-dark text-light">
-                New Customer? Create an Account.
-            </div>
-            <div class="card-body">
-                <div class="container">
-                    <form asp-controller="Account" asp-action="Register" method="post">
+    <div class="row mb-4">
+         
+                <div class="container bg-light">
+					<form asp-controller="Account" asp-action="Register" method="post">
+						@*<div class="row">
+							<div class="col-sm mt-2" asp-validation-summary="All"></div>
+						</div>*@
+						<div class="row mb-2">
+							<div class="col-sm-6 mx-auto">
+								<label asp-for="FirstName"></label>
+								<input asp-for="FirstName" class="form-control" placeholder="First Name" />
+								<span asp-validation-for="FirstName" class="text-danger"></span>
+							</div>
+							<div class="col-sm-6 mx-auto">
+								<label asp-for="LastName"></label>
+								<input asp-for="LastName" class="form-control" placeholder="Last Name" />
+								<span asp-validation-for="LastName" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-sm-6">
+								<label asp-for="UserName"></label>
+								<input asp-for="UserName" class="form-control" placeholder="Username" />
+								<span asp-validation-for="UserName" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-sm-8">
+								<label asp-for="Email"></label>
+								<input asp-for="Email" class="form-control" placeholder="Email" />
+								<span asp-validation-for="Email" class="text-danger"></span>
+							</div>
+						</div> <div class="row mb-2">
+							<div class="col-sm-8">
+								<label asp-for="Phone"></label>
+								<input asp-for="Phone" class="form-control" placeholder="Phone" />
+								<span asp-validation-for="Phone" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mb-4">
+							<div class="col-sm-6 mx-auto">
+								<label asp-for="Password"></label>
+								<input asp-for="Password" class="form-control" placeholder="Password" />
+								<span asp-validation-for="Password" class="text-danger"></span>
+							</div>
+							<div class="col-sm-6 mx-auto">
+								<label asp-for="ConfirmPassword"></label>
+								<input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+								<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+							</div>
+						</div>
 
-                        <span class="row mt-2" asp-validation-summary=" ModelOnly"></span>
-                        <div class="row mb-2">
-                            <div class="col col-md-6 mx-auto">
-                                <label asp-for="FirstName">Firstname</label>
-                                <input asp-for="FirstName" class="form-control" placeholder="First Name" />
-                                <span asp-validation-for="FirstName" class="text-danger" />
-                            </div>
-                            <div class="col col-md-6 mx-auto">
-                                <label asp-for="LastName"></label>
-                                <input asp-for="LastName" class="form-control" placeholder="Last Name" />
-                                <span asp-validation-for="LastName" class="text-danger" />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col col-md-6">
-                                <label asp-for="UserName"></label>
-                                <input asp-for="UserName" class="form-control" placeholder="Username" />
-                                <span asp-validation-for="UserName" class="text-danger" />
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col col-md-8">
-                                <label asp-for="Email"></label>
-                                <input asp-for="Email" class="form-control" placeholder="Email" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                        </div> <div class="row mb-2">
-                            <div class="col col-md-8">
-                                <label asp-for="Phone"></label>
-                                <input asp-for="Phone" class="form-control" placeholder="Phone" />
-                                <span asp-validation-for="Phone" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col col-md-6 mx-auto">
-                                <label asp-for="Password"></label>
-                                <input asp-for="Password" class="form-control" placeholder="Password" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-                            <div class="col col-md-6 mx-auto">
-                                <label asp-for="ConfirmPassword"></label>
-                                <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
-                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="row mb-2 justify-content-md-center">
-                            <div class="col-md-3">
-                                <input class="btn btn-dark" type="submit" value="Register and Continue" />
-                            </div>
-                        </div>
-                    </form>
+						<div class="row mb-2">
+								<input class="col-sm-11 btn btn-warning mx-auto" type="submit" value="Register and Continue" />
+						</div>
+					</form>
                 </div>
             </div>
         </div>
-    </div>
-</div>

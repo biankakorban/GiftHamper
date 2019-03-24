@@ -15,17 +15,23 @@ namespace BiankaKorban_DiplomaProject.Models
 
         [Required]
         public string FirstName { get; set; }
+
         [Required]
         public string LastName { get; set; }
+
         [Required]
         public string UserName { get; set; }
+
         [Required]
+		[EmailAddress]
         public string Email { get; set; }
+
         [Required]
         public string Phone { get; set; }
        
 
         //collection of customer addresses
+		[Required]
         public ICollection<Address> MyAddresses { get; set; }
 		public ICollection<Order> MyOrders { get; set; }
 		public ICollection<Review> Review { get; set; }

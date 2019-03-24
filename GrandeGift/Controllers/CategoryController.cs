@@ -55,7 +55,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
                 //call the service
                 _categoryDataService.Create(category);
                 //go back to Home/Index
-                return RedirectToAction("AdminPage", "Admin");
+                return RedirectToAction("Details", "Category");
             }
             //if invalid
             return View(vm);
@@ -97,7 +97,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
                 _categoryDataService.Update(category);
 
                 //go to admin page with list of categories
-                return RedirectToAction("AdminPage", "Admin");
+                return RedirectToAction("Details", "Category");
             }
 
             //pass to the view
@@ -109,7 +109,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
         public IActionResult Delete(int id)
         {
             _categoryDataService.Delete(new Category { CategoryId = id });
-            return RedirectToAction("AdminPage", "Admin");
+            return RedirectToAction("Details", "Category");
         }
 
 

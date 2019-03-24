@@ -36,8 +36,7 @@ namespace GrandeGift.Migrations
                     b.Property<string>("Line1")
                         .IsRequired();
 
-                    b.Property<string>("Line2")
-                        .IsRequired();
+                    b.Property<string>("Line2");
 
                     b.Property<string>("PostalCode")
                         .IsRequired();
@@ -90,7 +89,8 @@ namespace GrandeGift.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("CategoryId");
 
@@ -204,7 +204,8 @@ namespace GrandeGift.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("ProductId");
 

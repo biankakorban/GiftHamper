@@ -62,7 +62,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
 					await _userManagerService.AddToRoleAsync(user, "Customer");
 
 					//go home
-					return RedirectToAction("Index", "Home");
+					return RedirectToAction("SuccessfulRegistration", "Account");
                 }
                 else
                 {
@@ -124,5 +124,11 @@ namespace BiankaKorban_DiplomaProject.Controllers
         {
             return View();
         }
-    }
+
+		[HttpGet]
+		public IActionResult SuccessfulRegistration()
+		{
+			return View();
+		}
+	}
 }

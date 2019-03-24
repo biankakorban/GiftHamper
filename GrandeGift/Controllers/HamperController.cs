@@ -198,7 +198,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
                     Name = vm.Name,
                     Price = vm.Price,
                     CategoryId = vm.CategoryId,
-                    Image = vm.Image
+                    Image = hamper.Image
                 };
 
             
