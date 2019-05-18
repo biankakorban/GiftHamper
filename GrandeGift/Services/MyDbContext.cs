@@ -19,8 +19,8 @@ namespace BiankaKorban_DiplomaProject.Services
         public DbSet<Category> TblCategory { get; set; }
         public DbSet<Admin> TblAdmin { get; set; }
         public DbSet<Hamper> TblHamper { get; set; }
-        //public DbSet<HamperProduct> TblHamperProduct { get; set; }
-        public DbSet<Order> TblOrder { get; set; }
+		public DbSet<HamperProduct> HamperProduct { get; set; }
+		public DbSet<Order> TblOrder { get; set; }
         public DbSet<OrderLine> TblOrderLine { get; set; }
         public DbSet<Product> TblProduct { get; set; }
         public DbSet<Review> TblReview { get; set; }

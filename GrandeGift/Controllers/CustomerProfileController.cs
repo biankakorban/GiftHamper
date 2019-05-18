@@ -44,7 +44,10 @@ namespace BiankaKorban_DiplomaProject.Controllers
             Customer customer = _customerDataService.GetSingle(us => us.UserId == currentUserId);
             //var currentCustomerId = _customerDataService.GetSingle(us => us.UserId == currentUserId);
 
+			//collection of addresses from Address Model
 			IEnumerable<Address> addressList = _addressDataService.Query(a => a.CustomerId == customer.CustomerId);
+
+			//list of details of addresses from VM, new object
 			List<CustomerAddressDetailsViewModel> addressListVm = new List<CustomerAddressDetailsViewModel>();
 
 
@@ -52,7 +55,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
 			{
 				CustomerAddressDetailsViewModel addressViewModel = new CustomerAddressDetailsViewModel
 				{
-				
+				//what is inside 
 					AddressId = address.AddressId,
 					Line1 = address.Line1,
 					Line2 = address.Line2,
@@ -62,6 +65,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
 					PostalCode = address.PostalCode,
 					Country = address.Country
 				};
+				//add every address from collection object 
 				addressListVm.Add(addressViewModel);
 
 			}

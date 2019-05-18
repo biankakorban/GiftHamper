@@ -19,7 +19,10 @@ namespace BiankaKorban_DiplomaProject.ViewModels
 		public double Price { get; set; }
         public IEnumerable<Category> CategoryList { get; set; }
         public IEnumerable<Hamper> HamperList { get; set; }
+
+		[Required]
 		public int ProductId { get; set; }
+		[Required]
         public Product Product { get; set; }
 		public IEnumerable<Product> ProductList { get; set; }
 		public int TotalHamper { get; set; }

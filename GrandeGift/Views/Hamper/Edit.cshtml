@@ -1,0 +1,158 @@
+﻿@model HamperEditViewModel
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm mt-3">
+			<h3>Update the Gift Hamper</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm text-center">
+			<form asp-controller="Hamper" asp-action="Edit" method="post" enctype="multipart/form-data" class="container">
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm ">
+						<input asp-for="HamperId" class="form-control" type="hidden" />
+					</div>
+				</div>
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm-4">
+						<label class="font-weight-bold" asp-for="Name">Name of the hamper</label>
+					</div>
+					<div class="col-sm ">
+						<input asp-for="Name" class="form-control text-center" placeholder="Name of the hamper" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm-4">
+						<label class="font-weight-bold">Name of the category</label>
+					</div>
+					<div class="col-sm">
+						<select asp-for="CategoryId" class="form-control"
+								asp-items="@(new SelectList(ViewBag.CategoryList, "CategoryId", "Name"))"></select>
+						@Html.ValidationSummary()
+					</div>
+				</div>
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm-4">
+						<label class="font-weight-bold">Price</label>
+					</div>
+					<div class="col-sm">
+						<input asp-for="Price" class="form-control text-center" placeholder="Price" />
+						<span asp-validation-for="Price" class="text-danger"></span>
+
+					</div>
+				</div>
+
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm-4">
+						<label class="font-weight-bold" asp-for="Products">List of products</label>
+					</div>
+					<div class="col-sm-4">
+						<ul class="">
+							@foreach (var item in Model.HamperList)
+							{
+								@foreach (var product in item.Products)
+								{
+									<li>
+										<p class="text-sm-left">
+											@product.product.Name
+											@*<button class="btn btn-danger float-sm-right" type="button" >Remove from the Hamper</button>*@
+											<a class="btn btn-warning float-sm-right" href="/Hamper/Remove/@Model.HamperId/@product.product.ProductId">Remove from the Hamper</a>
+										</p>
+									</li>
+								}
+							}
+						</ul>
+					</div>
+
+					<div class="col-sm ">
+						<!-- Button trigger modal -->
+						<button id="myModalButton" type="button" class="btn btn-warning float-sm-right">
+							Attach new product to the Hamper
+						</button>
+					</div>
+				</div>
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm-4">
+						<label class="font-weight-bold">Discontinue</label>
+					</div>
+					<div class="col-sm">
+						<input type="checkbox" asp-for="Discontinue"/>
+					</div>
+				</div>
+				<div class="row mb-2 text-sm-left">
+					<div class="col-sm-4">
+						<p>Upload New Image</p>
+					</div>
+					<div class="col-sm mx-auto">
+						<img src="~/imagesApp/@Model.Image" alt="Image for the hamper" width="200" />
+						<input type="file" name="image" asp-for="WhatTheHeck" />
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="col-sm">
+						<button type="submit" class="btn btn-warning font-weight-bold">Update Gift Hamper and Continue</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	@*modal - to attach product the the hamper*@
+	<div class="row">
+		<!-- Button trigger modal -->
+		@*<button id="myModalButton" type="button" class="btn btn-warning">
+			Attach product to hamper
+		</button>*@
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">List of products</h5>
+						<button type="button" class="myBtn close" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+
+
+					<div class="modal-body">
+						<ul class="list-group">
+							@foreach (var item in Model.Products)
+							{
+								<li class="list-group-item">
+									@item.Name
+									<a class="btn btn-warning float-sm-right" href="/Hamper/Attach/@Model.HamperId/@item.ProductId">Attach Product</a>
+								</li>
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section customscript{
+	<script>
+        $(document).ready(function () {
+            $("h1").click(function () {
+                alert("Hello");
+            });
+
+            $("#myModalButton").click(function () {
+                $("#exampleModal").modal("show");
+            });
+
+            $(".myBtn").click(function () {
+                $("#exampleModal").modal("hide");
+            });
+
+        });
+	</script>
+}

@@ -32,8 +32,21 @@ namespace BiankaKorban_DiplomaProject.Services
 			return dbHamper;
 		}
 
+		public void RemoveProduct(int hamperId, int productId)
+		{
+			var hamper = _dbHamper.Where(c => c.HamperId == hamperId)
+											.Include(c => c.Products).FirstOrDefault();
 
-       
-      
+			HamperProduct dbProduct = _context.HamperProduct.Where(s => s.ProductId == productId).FirstOrDefault();
+
+			hamper.Products.Remove(dbProduct);
+
+			_context.SaveChanges();
+
+
+		}
+
+	
+
 	}
 }

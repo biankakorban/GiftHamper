@@ -76,7 +76,7 @@ namespace GrandeGift
 			app.UseMvcWithDefaultRoute();
 
 
-			//SeedHelper.Seed(app.ApplicationServices).Wait();
+			SeedHelper.Seed(app.ApplicationServices).Wait();
 		}
 	}
 }

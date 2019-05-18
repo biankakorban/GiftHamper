@@ -22,5 +22,14 @@ namespace BiankaKorban_DiplomaProject.Models
         public ICollection<HamperProduct> Products { get; set; }
 
 		public ICollection<OrderLine> OrderLines { get; set; }
+		public bool Discontinue { get; set; }
+
+
+
+
+
+
+
+
 	}
 }

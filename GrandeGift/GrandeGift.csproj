@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190321044658_initMigratiob.cs" />
-    <Compile Remove="Migrations\20190321044658_initMigratiob.Designer.cs" />
+    <Compile Remove="Controllers\API\**" />
+    <Content Remove="Controllers\API\**" />
+    <EmbeddedResource Remove="Controllers\API\**" />
+    <None Remove="Controllers\API\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -324,6 +326,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\node_modules\popper.js\index.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\imagesCopy\" />
   </ItemGroup>
 
 </Project>

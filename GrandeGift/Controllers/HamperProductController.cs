@@ -74,7 +74,7 @@ namespace BiankaKorban_DiplomaProject.Controllers
 
 			_hamperManager.addProduct(hamperId, productId);
 
-			return RedirectToAction("Create", new { hamperId});
+			return RedirectToAction("Create", new {id = hamperId});
 		}
 
     }

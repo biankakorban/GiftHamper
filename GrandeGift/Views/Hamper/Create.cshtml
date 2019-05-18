@@ -141,12 +141,14 @@
         </div>
         <div class="col-sm">
             <div class="container">
-                <div class="row mt-3 mb-3">
-                    <h3 class="mx-auto">Add New Gift Hamper</h3>
+				<div class="row mt-3 mb-3">
+					<div class="col-sm">
+						<h3 class="mx-auto">Add New Gift Hamper</h3>
+					</div>
                 </div>
                 <div class="row">
                     <div class="col-sm text-center">
-                        <form asp-controller="Hamper" asp-action="Create" method="post" enctype="multipart/form-data">
+                        <form asp-controller="Hamper" asp-action="Create" method="post" enctype="multipart/form-data" class="container">
                             <div class="row mb-2 text-sm-left">
                                 <div class="col-sm-4">
                                     <label class="font-weight-bold" asp-for="Name">Name of the hamper</label>
