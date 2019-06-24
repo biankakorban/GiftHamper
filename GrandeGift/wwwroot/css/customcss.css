@@ -1,5 +1,5 @@
 ﻿body {
-	background-color: ##e6e2e2;
+	background-color: #e6e2e2;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	color: black;
 	height: 100%;
@@ -129,7 +129,7 @@ a{
 }
 
 #back-to-top:hover {
-		background: #e9ebec;
+		background-color: #e9ebec;
 	}
 
 #back-to-top.show {
@@ -140,3 +140,6 @@ a{
 	height: 2000px;
 }
 
+#filter {
+	background-color: coral;
+}

@@ -1,0 +1,63 @@
+﻿@model FilterSearchViewModel
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 mt-2 mb-2">
+			<form asp-controller="Filter" asp-action="Search" method="get" role="form" class="container">
+				<div class="row">
+					<div class="col-sm-12 mx-0">
+						<p>Find Gift Hamper by Price: </p>
+					</div>
+					<div class="col-sm-5">
+						<input asp-for="min" type="text" class="form-control" placeholder="Min Price" />
+					</div>
+					<div class="col-sm-5 ml-0">
+						<input asp-for="max" type="text" class="form-control" placeholder="Max Price" />
+					</div>
+					<div class="col-sm-12 mt-3 ml-0 ">
+						<button type="submit" class="btn btn-danger font-weight-bold justify-content-center">Select</button>
+					</div>
+				</div>
+			</form>
+			<div class="container mt-3">
+				<div class="row">
+					<p class="col-sm-12"> Available categories</p>
+					<div class="col-sm">
+						<ul class="list-group">
+							@foreach (var item in Model.Categories)
+							{
+								<li class="list-group-item list-group-item-warning">
+									<a href="~/Filter/Search/@item.CategoryId">@item.Name</a>
+								</li>
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8 mt-2 mb-2">
+			<div class="container">
+				<div class="row mt-2 mb-2">
+					@foreach (var item in Model.Hampers)
+					{
+						if (item.Discontinue == false)
+						{
+							<div class="col-sm-4">
+								<div class="w-100 card" style="width: 18rem;">
+									<img src="~/imagesApp/@item.Image" class="card-img-top" alt="HamperImage">
+									<div class="card-body">
+										<h5 class="card-title text-center">@item.Name</h5>
+										<p class="card text-center">AUS$ @item.Price</p>
+										<a href="#" class="btn btn-info d-flex justify-content-center  text-center">Go somewhere</a>
+									</div>
+								</div>
+							</div>
+						}
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
