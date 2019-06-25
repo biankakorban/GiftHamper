@@ -19,7 +19,12 @@
 						<img src="~/imagesApp/@item.Image" class="card-img-top" alt="HamperImage">
 						<div class="card-body">
 							<h5 class="card-title text-center">@item.Name</h5>
-							<a href="#" class="btn btn-info d-flex justify-content-center">Go somewhere</a>
+								@if (User.Identity.IsAuthenticated && User.IsInRole("Customer") ||
+								User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+								{
+									<a asp-controller="Cart" asp-action="Buy" asp-route-id="@item.HamperId" 
+									class="btn btn-info d-flex justify-content-center">Add to Cart</a>
+								}
 						</div>
 					</div>
 				</div>

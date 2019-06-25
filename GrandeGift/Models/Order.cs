@@ -12,7 +12,7 @@ namespace BiankaKorban_DiplomaProject.Models
 		public int OrderId { get; set; } //PK
 		public int CustomerId { get; set; } //FK
 		public DateTime OrderDate { get; set; }
-
+		public int AddressId { get; set; }
 		public ICollection<OrderLine> OrderLines { get; set; }
 	}
 }

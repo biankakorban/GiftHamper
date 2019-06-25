@@ -56,6 +56,12 @@ namespace GrandeGift
 			services.AddScoped<IDataService<Category>, DataService<Category>>();
 			services.AddScoped<IDataService<Product>, DataService<Product>>();
 			services.AddScoped<IDataService<Hamper>, DataService<Hamper>>();
+			services.AddScoped<IDataService<Order>, DataService<Order>>();
+			services.AddScoped<IDataService<OrderLine>, DataService<OrderLine>>();
+
+			services.AddMvc().AddSessionStateTempDataProvider();
+			//this is for session
+			services.AddSession();
 
 
 		}
@@ -71,12 +77,12 @@ namespace GrandeGift
 
 
 			app.UseStaticFiles();
-			//app.UseSession();
+			app.UseSession();
 			app.UseAuthentication(); //Identity Middleware
 			app.UseMvcWithDefaultRoute();
 
 
-			SeedHelper.Seed(app.ApplicationServices).Wait();
+			//SeedHelper.Seed(app.ApplicationServices).Wait();
 		}
 	}
 }

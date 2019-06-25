@@ -1,0 +1,64 @@
+﻿@model GrandeGift.ViewModels.CartCreateViewModel
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm mt-3">
+			<h3>Shopping Cart</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="card mx-auto">
+			<div class="card-header bg-dark text-light">
+				Cart Items
+			</div>
+			<div class="card-body">
+				<div class="col-sm-12">
+					<table class="table table-borderless">
+						<thead>
+							<tr class="text-center">
+								<th>Option</th>
+								<th>Name</th>
+								<th>Image</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Sub Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+							</tr>
+							@if (ViewBag.cart != null)
+							{
+								@foreach (var item in ViewBag.cart)
+								{
+									<tr>
+										<td><a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Hamper.HamperId" class="btn btn-outline-danger"><i class="fa fa-close"></i></a></td>
+										<td>@item.Hamper.Name</td>
+										<td><img src="~/imagesApp/@item.Hamper.Image" width="60" alt="@item.Hamper.Name" /></td>
+										<td asp-format="{0:C}">AUS$ @item.Hamper.Price</td>
+										<td>@item.Quantity</td>
+										<td>AUS$ @(item.Hamper.Price * item.Quantity)</td>
+									</tr>
+									<tr>
+										<td></td>
+									</tr>
+								}
+							}
+							<tr>
+								<td align="right" colspan="5">Sum</td>
+								<td>@ViewBag.totalQuantity</td>
+								<td>AUS$ @ViewBag.total</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center justify-content-sm-center mt-3">
+		<a align="center" class="col-sm-3 btn btn-dark" asp-controller="Cart" asp-action="Checkout">Checkout</a>
+	</div>
+</div>
+
+
