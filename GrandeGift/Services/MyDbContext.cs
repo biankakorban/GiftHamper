@@ -27,7 +27,7 @@ namespace BiankaKorban_DiplomaProject.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder option)
         {
-            option.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=BKorbanDiplomaProjectDB; Trusted_Connection=True;");
+            option.UseSqlServer(@"Server='xxx'; Database='xxx'; Trusted_Connection=True;");
         }
 
 		protected override void OnModelCreating(ModelBuilder builder)
