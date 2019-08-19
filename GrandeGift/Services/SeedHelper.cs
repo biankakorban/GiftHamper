@@ -31,7 +31,7 @@ namespace BiankaKorban_DiplomaProject.Services
                     {
                         IdentityUser customer = new IdentityUser("customer");
                         customer.Email = "customer@yahoo.com";
-                        await userManger.CreateAsync(customer, "Apple3###");
+                        await userManger.CreateAsync(customer, "xxx");
                         //add profile
                         Customer customerProfile = new Customer
                         {
@@ -57,7 +57,7 @@ namespace BiankaKorban_DiplomaProject.Services
                     {
                         IdentityUser admin = new IdentityUser("admin");
                         admin.Email = "admin@yahoo.com";
-                        await userManger.CreateAsync(admin, "Apple3###");
+                        await userManger.CreateAsync(admin, "xxx");
                         //add profile
                         Admin adminProfile = new Admin
                         {
